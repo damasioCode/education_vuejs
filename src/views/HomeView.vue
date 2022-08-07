@@ -1,9 +1,7 @@
 <script setup>
-  // import TheWelcome from '@/components/TheWelcome.vue'
+  import StudentsContainer from '@/components/list_students/StudentsContainer.vue';
 </script>
 
 <template>
-  <!-- <main>
-    <TheWelcome />
-  </main> -->
+  <StudentsContainer />
 </template>

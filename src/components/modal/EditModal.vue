@@ -3,14 +3,11 @@
 </script>
 
 <template>
-  <li class="student__row">
-    <ul class="student__column">
-      <li>RA</li>
-      <li>Name</li>
-      <li>CPF</li>
-      <li>Actions</li>
-    </ul>
-  </li>
+  <section class="modal">
+    <div class="modal__card">
+      <h2>aaaaa</h2>
+    </div>
+  </section>
 </template>
 
 <style scoped>

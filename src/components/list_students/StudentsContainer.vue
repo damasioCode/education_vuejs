@@ -27,8 +27,6 @@ const fetchStudents = async () => {
 
 // })
 watchEffect(async () => {
-  // this effect will run immediately and then
-  // re-run whenever currentBranch.value changes
   const API_URL = 'https://secret-fjord-29410.herokuapp.com/api/v1'
   studentsData.value = await (await fetch(`${API_URL}/students`)).json()
   console.log(studentsData.value);

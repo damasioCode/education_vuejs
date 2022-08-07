@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 const props = defineProps(['info'])
 </script>
 
@@ -9,7 +10,7 @@ const props = defineProps(['info'])
       <li>{{props.info.name}}</li>
       <li>{{props.info.cpf}}</li>
       <li class="actions">
-        <button class="edit">Edit</button>
+        <RouterLink :to="{name : 'edit', params: {ra: props.info.ra}}" class="edit">Edit</RouterLink>
         <button class="delete">Delete</button>
       </li>
     </ul>
@@ -39,8 +40,13 @@ const props = defineProps(['info'])
     flex-wrap: wrap;
     gap: .5rem;
   }
-  .actions button {
+  .actions button,
+  .actions a {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
     flex: 1;
+    text-align: center;
+    font-size: 1rem;
     cursor: pointer;
     padding: .5rem 1rem;
     color: #FFF;
@@ -48,7 +54,8 @@ const props = defineProps(['info'])
     flex-wrap: wrap; 
   }
 
-  .actions button.edit {
+  .actions button.edit,
+  .actions a.edit {
     background: #1460D1;
   }
   .actions button.delete {

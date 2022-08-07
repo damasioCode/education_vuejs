@@ -1,6 +1,7 @@
 <script setup>
 import StudentsRow from './StudentsRow.vue';
-import { onMounted, ref, watchEffect } from 'vue'
+import StudentsHeader from './StudentsHeader.vue';
+import { ref, watchEffect } from 'vue'
 import { getAllStudents } from '@/services/api.js'
 
 const studentsData = ref({})
@@ -16,15 +17,15 @@ const fetchStudents = async () => {
     console.log(error)
   }
 }
-onMounted( () => { 
-  ( async () => {
-    await Promise.resolve(fetchStudents())
-      .then((data) => {
-        studentsData.value = data
-      })
-  })()
+// onMounted( () => { 
+//   ( async () => {
+//     await Promise.resolve(fetchStudents())
+//       .then((data) => {
+//         studentsData.value = data
+//       })
+//   })()
 
-})
+// })
 watchEffect(async () => {
   // this effect will run immediately and then
   // re-run whenever currentBranch.value changes
@@ -39,9 +40,7 @@ watchEffect(async () => {
 <template>
   <section class="student">
     <ul class="student__wrapper container">
-      <button @click="count++">{{ count }}</button>
-      <button @click="count++">{{ count }}</button>
-      <button @click="count++">{{ count }}</button>
+      <StudentsHeader />
       <StudentsRow 
         v-for="data in studentsData.results"
         :key="data.id"

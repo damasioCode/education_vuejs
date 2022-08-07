@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import TheNavbar from './components/menu_navbar/TheNavbar.vue'
-import StudentsContainer from './components/fetch_students/StudentsContainer.vue';
+import StudentsContainer from './components/list_students/StudentsContainer.vue';
 </script>
 
 <template>

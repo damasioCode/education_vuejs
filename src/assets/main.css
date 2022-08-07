@@ -10,6 +10,10 @@ img {
   object-fit: contain;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
 }

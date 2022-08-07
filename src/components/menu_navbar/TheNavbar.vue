@@ -23,6 +23,8 @@
 <style scoped>
   .navmenu {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: .5rem 0;
     background: #FFF;

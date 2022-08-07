@@ -1,26 +1,17 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import TheNavbar from './components/menu_navbar/TheNavbar.vue'
+import StudentsContainer from './components/fetch_students/StudentsContainer.vue';
 </script>
 
 <template>
 
   <TheNavbar />
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  
+  <StudentsContainer />
   <RouterView />
 </template>
+
 
 <style scoped>
 

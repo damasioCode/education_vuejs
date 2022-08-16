@@ -13,24 +13,75 @@ watchEffect(async () => {
 })
 
 const onSubmit = async (event) => {
-  // const formData = new FormData(event.target)
-  
+  const formData = new FormData(event.target)
+  console.log(formData)
 }
 </script>
 
 <template>
-  <form method="POST" v-on:submit.prevent="onSubmit">
-    <input type="text" name="name" :value="student.name">
-    <input type="text" name="name" :value="student.email">
-    <input type="text" name="name" :value="student.ra">
-    <input type="text" name="name" :value="student.cpf">
-    <button type="submit">Update</button>
+  <form class="form" method="POST" v-on:submit.prevent="onSubmit">
+    <div class="input__box">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" :value="student.name">
+    </div>
+    <div class="input__box">
+      <label for="name">Email</label>
+      <input type="text" name="email" id="email" :value="student.email">
+    </div>
+    <div class="input__box">
+      <label for="name">RA</label>
+      <input type="text" readonly :value="student.ra">
+    </div>
+    <div class="input__box">
+      <label for="name">CPF</label>
+      <input type="text" readonly :value="student.cpf">
+    </div>
+    <button class="submit" type="submit">Update</button>
   </form>
 </template>
 
 <style scoped>
   .student__row {
     transition: .2s all ease-in-out;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  form .submit {
+    max-width: 180px;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-left: auto;
+    cursor: pointer;
+    background: #15d160;
+    font-weight: 600;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    
+  }
+  .input__box {
+    flex: 1;
+    gap: .2rem;
+  }
+
+  /* .input__box label {
+    
+  } */
+  .input__box input {
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: 1px solid #CECECE;
+    box-shadow: 0 10px 10px rgba( 130, 130, 130, 0.08);
+    padding: .75rem;    
+    border-radius: 4px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  }
+  textarea:focus, input:focus{
+    outline: none;
   }
   .student__row {
     background-color: #dadada;

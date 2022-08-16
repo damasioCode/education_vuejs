@@ -4,32 +4,14 @@ import StudentsHeader from './StudentsHeader.vue';
 import { ref, watchEffect } from 'vue'
 import { getAllStudents } from '@/services/api.js'
 
+// const props = defineProps(['isLoading'])
+const isLoading = ref(false)
 const studentsData = ref({})
 
-// const props = defineProps([''])
-
-const fetchStudents = async () => {
-  try{
-    const studentsData = await getAllStudents()
-    const resolveStudents = await new Promise( resolve => resolve(studentsData) )
-    return resolveStudents
-  } catch(error) { 
-    console.log(error)
-  }
-}
-// onMounted( () => { 
-//   ( async () => {
-//     await Promise.resolve(fetchStudents())
-//       .then((data) => {
-//         studentsData.value = data
-//       })
-//   })()
-
-// })
 watchEffect(async () => {
-  const API_URL = 'https://secret-fjord-29410.herokuapp.com/api/v1'
-  studentsData.value = await (await fetch(`${API_URL}/students`)).json()
-  console.log(studentsData.value);
+  isLoading.value = true
+  studentsData.value = await getAllStudents()
+  isLoading.value = false
 })
 
 
@@ -38,7 +20,7 @@ watchEffect(async () => {
 <template>
   <section class="student">
     <ul class="student__wrapper container">
-      <StudentsHeader />
+      <StudentsHeader v-if="!isLoading" />
       <StudentsRow 
         v-for="data in studentsData.results"
         :key="data.id"

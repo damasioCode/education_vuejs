@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from 'vue-router'
 
 // export default {}
 </script>
@@ -7,15 +8,15 @@
   <header class="navmenu">
     <div class="navmenu__wrapper container">
 
-      <div class="navmenu__brand">
+      <RouterLink to="/" class="navmenu__brand">
         <div class="logo">
           <img
             alt="Vue logo"
             src="@/assets/logo.svg"
           />
         </div>
-        <h2>TheStudents</h2>
-      </div>
+        TheStudents
+      </RouterLink>
     </div>
   </header>
 </template>
@@ -40,8 +41,10 @@
     max-width: 40px;
     flex: 1;
   }
-  .navmenu__brand h2 {
+  .navmenu__brand {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    font-size: 1.25rem;
+    color: #2e2e2e
   }
 </style>
